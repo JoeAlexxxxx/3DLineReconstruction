@@ -81,9 +81,9 @@ In this repository, we also provide a complete dataset Castle30 for testing, and
 ```
 
 ### Result
-![alt text](<2024-08-09 13 56 14.png>)
+![2024-08-09 13 56 14](https://github.com/user-attachments/assets/abd6b995-910c-4d82-af7e-986e4eaefafd)
 
-![alt text](<2024-08-09 13 56 49.gif>)
+![2024-08-09 13 56 49](https://github.com/user-attachments/assets/94b57979-b6eb-4e05-b77c-c918977f11d2)
 
 ### Addition
 
