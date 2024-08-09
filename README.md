@@ -1,10 +1,10 @@
-# 3D Line Resconstruction
+# 3D Line Reconstruction
 
-This is a public repository for 3D line resconstruction.
+This is a public repository for 3D line reconstruction.
 
 ## Features
 
-- Accurate 3D line segment clustering  with the support of probability model.
+- Accurate 3D line segment clustering  with the support of a probability model.
 - Robust triangulation is achieved by a universal framework that refines the 3D line with various forms of geometric consistency.
 
 ## CMake
@@ -20,7 +20,7 @@ Our code compiles and runs normally under VS2019, on the Windows11 system with C
 
 ## Dependency
 
-The compilation and operation of the program relies on some common open source third-party libraries, but we also provide our own compiled library files.
+The compilation and operation of the program rely on some common open-source third-party libraries, but we also provide our own compiled library files.
 
 - 3rd party
 
@@ -40,12 +40,12 @@ The compilation and operation of the program relies on some common open source t
 
 ## Example and test
 
-In this repository, we also provide a complete dataset Castle30 for testing, and also provide the line segments taken from DeepLSD. In the code, we use TCLAP as the controller for command input and provide a simple command parameter introduction. Here we will introduce the usage of these commands in detail, and will give the method of testing experimental data later.
+In this repository, we also provide a complete dataset Castle30 for testing and also provide the line segments taken from DeepLSD. In the code, we use TCLAP as the controller for command input and provide a simple command parameter introduction. Here we will introduce the usage of these commands in detail and will give the method of testing experimental data later.
 
 ### Input command
 
 ```javascript
-[3DLineResconstruction.exe] [-i] [inputfolder] [-l] [line extraction method] [-f] [line files extraction from other program] [-e] [the file extension of the line files] [-c] [specifies whether the result comes from colmap] [-s] [the maxmum size of input images] [-n] [the maxmum number of input lines]
+[3DLineResconstruction.exe] [-i] [inputfolder] [-l] [line extraction method] [-f] [line files extraction from other programs] [-e] [the file extension of the line files] [-c] [specifies whether the result comes from colmap] [-s] [the maximum size of input images] [-n] [the maximum number of input lines]
 ```
 
 - Inputfolder `-i (std::string)` 
@@ -58,17 +58,17 @@ In this repository, we also provide a complete dataset Castle30 for testing, and
 
 - Line files folder `-f (std::string)`
 
-  Specify the folder path where the line segment files are stored. If line extraction method command `-l` is not used or -1, this command cannot be empty.
+  Specify the folder path where the line segment files are stored. If the line extraction method command `-l` is not used or -1, this command cannot be empty.
 
 - Line file extension `-e (std::string)`
 
-  Use with the previous command `-f`. This command does not refer to the file extension alone, and it used to help identify the pairing of line files and images. If the image name is `0001.jpg`, and the line file name `0001.line`, then the command input should be `.line`. If the line file name is `0001.jpg.line`, this command should be `.jpg.line`.
+  Use the previous command `-f`. This command does not refer to the file extension alone, and it is used to help identify the pairing of line files and images. If the image name is `0001.jpg`, and the line file name `0001.line`, then the command input should be `.line`. If the line file name is `0001.jpg.line`, this command should be `.jpg.line`.
 
 - From colmap `-c (int)`
 
   If the nvm file is from colmap, this command should be specified.
 
-- Maxmum image size `-s` and maxmum line number `-n`
+- Maximum image size `-s` and maximum line number `-n`
 
   These two commands are used to limit the maximum size of the image and the maximum number of line segments input. The default value is 99999, which means no limit.
 
@@ -95,4 +95,4 @@ If you want to use your own line segment extraction results, you need to keep th
 
 ## License
 
-The source code of i-Octree is released under [GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) license. For commercial use, please contact us.
+The source code of 3D line reconstruction is released under [GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) license. For commercial use, please contact us.
