@@ -4,24 +4,20 @@ This is a public repository for our paper: "Clustering,
 triangulation, 
 and evaluation of 3D lines in multiple images".
 
-  | Cpp file | Description |
+  | Source file | Description |
   | ------------ | ------- |
-  | Main_visualSfM.cpp        | Main function   |
-  | LineCluster.cpp     |  Implementation of the adaptive line clustering   |
-  | OpenCV       | 4.55    |
-  | CUDA         | 11.7    |
-  | OpenMP       |         |
-  | TCLAP        | 1.4.0   |
-  | NLOPT        | 2.7.1   |
-
-
+  | Main_SfM.cpp        | Main function, make obj files   |
+  | LineSweep.cpp, LineCluster.cpp | Implementation of the adaptive line clustering   |
+  | triangulated3Dlines.cpp       | Implementation of the triangulation with geometry consistence    |
+  
 ## Install
-One can use 
-3DLineResconstruction_code/CMakeLists.txt 
-to install with CMake.
-Our code compiles and runs normally under VS2019, on the Windows11 system with CMake 3.24. 
-We have provided the 
-In order to achieve more efficient knn search, we need a GPU that supports CUDA.
+- One can use 3DLineResconstruction_code/CMakeLists.txt 
+to compile this repository with CMake.
+- It was compiled and ran normally under VS2019, on the Windows11 system with CMake 3.24. 
+- It needs a GPU to achieve efficient knn search.
+- The line matching method is implemented based on <br>
+  ELSR: Efficient Line Segment Reconstruction with Planes and Points Guidance CVPR, 2022.<br>
+​	Both debug and release versions are provided in "3DLineResconstruction_Lib".
 
 - Locally compiled software and hardware environment
   - VisualStudio 2019
@@ -31,8 +27,6 @@ In order to achieve more efficient knn search, we need a GPU that supports CUDA.
   - Nvidia RTX3090
 
 ## Dependency
-
-The compilation and operation of the program rely on some common open-source third-party libraries, but we also provide our own compiled library files.
 
 - 3rd party
 
@@ -46,13 +40,13 @@ The compilation and operation of the program rely on some common open-source thi
   | TCLAP        | 1.4.0   |
   | NLOPT        | 2.7.1   |
 
-- The private library of line matching in
-  D. Wei, Y. Wan, Y. Zhang, X. Liu, B. Zhang and X. Wang, ELSR: Efficient Line Segment Reconstruction with Planes and Points Guidance CVPR, 2022,
-​	both debug and release versions are provided.
 
-## Example and test
 
-In this repository, we also provide a complete dataset Castle30 for testing and also provide the line segments taken from DeepLSD. In the code, we use TCLAP as the controller for command input and provide a simple command parameter introduction. Here we will introduce the usage of these commands in detail and will give the method of testing experimental data later.
+## Usage
+- The algorithm require the SfM result named "res.nvm" from either ColMap or VisualSfM.
+  "res.nvm" must be in the image folder.
+- We provide the dataset of Castle30 for test.
+- We use TCLAP for command input and provide the introduction of parameters. 
 
 ### Input command
 
@@ -66,7 +60,7 @@ In this repository, we also provide a complete dataset Castle30 for testing and 
 
 - Line extraction method `-l (int)`
 
-  Specify the line segment extraction method. Three line segment extraction methods are embedded in the program: LSD(OpenCV version), AG3 Line and EDLine, corresponding to commands 1-3 respectively. If you want to use the line segment obtained by other programs, you can not use this command parameter or enter the value -1. 
+Specify the line segment extraction method. Three line segment extraction methods are embedded in the program: LSD(OpenCV version), AG3 Line and EDLine, corresponding to commands 1-3 respectively. If you want to use the line segment obtained by other programs, you can not use this command parameter or enter the value -1. 
 
 - Line files folder `-f (std::string)`
 
