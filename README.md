@@ -64,7 +64,7 @@ to compile this repository with CMake.
 
 - Line extraction method `-l (int)`
 
-  Specify the line segment extraction method. Three line segment extraction methods are embedded in the program: <u>LSD(OpenCV version)</u>, <u>AG3Line</u> and <u>EDLine</u>, corresponding to commands 1-3 respectively. If you want to use the line segment obtained by other programs, you can not use this command parameter or enter the value -1. 
+  Specify the line segment extraction method. Three line segment extraction methods are embedded in the program: `LSD(OpenCV version)`, `AG3Line` and `EDLine`, corresponding to commands 1-3 respectively. If you want to use the line segment obtained by other programs, you can not use this command parameter or enter the value -1. 
 
 - Line files folder `-f (std::string)`
 

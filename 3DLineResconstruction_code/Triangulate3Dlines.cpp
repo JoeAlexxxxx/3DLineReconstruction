@@ -1,4 +1,4 @@
-#include "Triangulated3Dlines.h"
+#include "Triangulate3Dlines.h"
 #include "BasicMath.h"
 
 #ifndef LINE_plane_sin_min
