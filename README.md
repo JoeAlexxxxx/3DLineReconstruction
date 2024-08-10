@@ -1,86 +1,83 @@
 # 3D Line Reconstruction
 
-This is a public repository for our paper: "Clustering, 
-triangulation, 
-and evaluation of 3D lines in multiple images".
+Welcome to the public repository for our paper: *"Clustering, Triangulation, and Evaluation of 3D Lines in Multiple Images."* This repository features:
 
-  | Source file | Description |
-  | ------------ | ------- |
-  | Main_SfM.cpp        | Main function, make obj files   |
-  | LineSweep.cpp, LineCluster.cpp | Implementation of the adaptive line clustering   |
-  | Triangulate3Dlines.cpp       | Implementation of the triangulation with geometry consistence    |
+- Adaptive 3D line clustering for multi-view reconstruction.
+- Robust triangulation with geometric consistency.
 
-## Features
-Accurate 3D line segment clustering  with the support of a probability model.
-Robust triangulation is achieved by a universal framework that refines the 3D line with various forms of geometric consistency.
-  
-## Install
-- One can use 3DLineResconstruction_code/CMakeLists.txt 
-to compile this repository with CMake.
-- It was compiled and ran normally under VS2019, on the Windows11 system with CMake 3.24. 
-- It needs a GPU to achieve efficient knn search.
-- The line matching method is implemented based on <br>
-  `ELSR: Efficient Line Segment Reconstruction with Planes and Points Guidance CVPR, 2022.`<br>
-​	Both debug and release versions are provided in "3DLineResconstruction_Lib".
+  | Source File            | Description                                         |
+  | ---------------------- | --------------------------------------------------- |
+  | `Main_SfM.cpp`         | Main function, generates OBJ files                  |
+  | `LineSweep.cpp`, `LineCluster.cpp` | Implements adaptive line clustering          |
+  | `Triangulate3Dlines.cpp` | Implements triangulation with geometric consistency |
 
-- Locally compiled software and hardware environment
-  - VisualStudio 2019
-  - Windows11
-  - CUDA 11.7
-  - i9 12900K
-  - Nvidia RTX3090
+## Installation
 
-## Dependency
+- Use the `CMakeLists.txt` file in the `3DLineReconstruction_code` directory to compile the repository with CMake.
+- A GPU and CUDA are required for efficient K-Nearest Neighbors (KNN) computation.
+- Line matching is based on the approach described in the paper:  
+  **"ELSR: Efficient Line Segment Reconstruction with Planes and Points Guidance," CVPR 2022.**  
+  Both debug and release versions are provided in the `3DLineReconstruction_Lib` directory.
 
-- 3rd party
+### Test Platform
+
+- **Operating System:** Windows 11
+- **IDE:** Visual Studio 2019
+- **CUDA Version:** 11.7
+- **Processor:** Intel i9-14900K
+- **Graphics Card:** Nvidia RTX 3090
+
+## Dependencies
+
+- Third-Party Libraries:
 
   | Library Name | Version |
   | ------------ | ------- |
   | Boost        | 1.79.0  |
   | Eigen        | 3.4.0   |
-  | OpenCV       | 4.55    |
+  | OpenCV       | 4.5.5   |
   | CUDA         | 11.7    |
   | OpenMP       |         |
   | TCLAP        | 1.4.0   |
   | NLOPT        | 2.7.1   |
 
-
-
 ## Usage
-- The algorithm require the SfM result named "res.nvm" from either ColMap or VisualSfM.
-  "res.nvm" must be in the image folder.
-- We provide the dataset of Castle30 for test.
-- We use TCLAP for command input and provide the introduction of parameters. 
 
-### Input command
+- The algorithm requires the SfM result file named `res.nvm` from either ColMap or VisualSfM.
+- Ensure that `res.nvm` is located in the image directory.
+- Refer to the `example/Castle30` directory for sample input data.
+
+### Command-Line Usage
 
 ```javascript
 [3DLineResconstruction.exe] [-i] [inputfolder] [-l] [line extraction method] [-f] [line files extraction from other programs] [-e] [the file extension of the line files] [-c] [specifies whether the result comes from colmap] [-s] [the maximum size of input images] [-n] [the maximum number of input lines]
 ```
 
-- Inputfolder `-i (std::string)` 
+- **Input Folder `-i (std::string)`**
 
-  This parameter cannot be empty. It specifies the folder where the image files and VisualSFM result nvm files are stored.
+  Specifies the directory containing image files and the `res.nvm` file.
 
-- Line extraction method `-l (int)`
+- **Line Extraction Method `-l (int)`**
 
-  Specify the line segment extraction method. Three line segment extraction methods are embedded in the program: `LSD(OpenCV version)`, `AG3Line` and `EDLine`, corresponding to commands 1-3 respectively. If you want to use the line segment obtained by other programs, you can not use this command parameter or enter the value -1. 
+  Defines the line segment extraction method. The program includes three methods: `LSD (OpenCV version)`, `AG3Line`, and `EDLine`, corresponding to options 1-3. If you wish to use line segments obtained from other programs, omit this parameter or set it to -1.
 
-- Line files folder `-f (std::string)`
+- **Line Files Folder `-f (std::string)`**
 
-  Specify the folder path where the line segment files are stored. If the line extraction method command `-l` is not used or -1, this command cannot be empty.
+  Specifies the directory path where the line segment files are stored. This parameter is required if the `-l` command is omitted or set to -1.
 
-- Line file extension `-e (std::string)`
+- **Line File Extension `-e (std::string)`**
 
-  Use the previous command `-f`. This command does not refer to the file extension alone, and it is used to help identify the pairing of line files and images. If the image name is `0001.jpg`, and the line file name `0001.line`, then the command input should be `.line`. If the line file name is `0001.jpg.line`, this command should be `.jpg.line`.
+  Used in conjunction with the `-f` command to identify the line files' extension. This command helps pair line files with images. For example, if the image file is `0001.jpg`, its line file should be `0001.jpg.line`, and set this to `.line`.
 
-- From colmap `-c (int)`
+- **From ColMap `-c (int)`**
 
-  If the nvm file is from colmap, this command should be specified.
+  If the `nvm` file originates from ColMap, specify this command as true,
+  because we found a little difference between their coordinates.
 
-- Maximum image size `-s` and maximum line number `-n`
+- **Maximum Image Size `-s` and Maximum Line Number `-n`**
 
-  These two commands are used to limit the maximum size of the image and the maximum number of line segments input. The default value is 99999, which means no limit.
+  These commands limit the maximum size of the input images and the maximum number of line segments. The default value is 99999, indicating no limit.
+
 
 ### Example usage
 
@@ -91,13 +88,16 @@ to compile this repository with CMake.
 ```
 
 ### Result
-![2024-08-09 13 56 14](https://github.com/user-attachments/assets/abd6b995-910c-4d82-af7e-986e4eaefafd)
 
-![2024-08-09 13 56 49](https://github.com/user-attachments/assets/94b57979-b6eb-4e05-b77c-c918977f11d2)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/abd6b995-910c-4d82-af7e-986e4eaefafd" width="45%" />
+  <img src="https://github.com/user-attachments/assets/94b57979-b6eb-4e05-b77c-c918977f11d2" width="45%" />
+</p>
+
 
 ### Addition
 
-If you want to use your own line segment extraction results, you need to keep the line segment storage format consistent with the example file. In the example file, each line segment detected from the image is stored in a separate line. The two endpoints of the line segment are stored as four numbers separated by spaces, and no other characters are required. In order to maintain accuracy, these values are all float types and use the screen coordinate system, the origin of the coordinate system is in the upper left corner.
+If you want to use your own line segment extraction results, you need to keep the line segment storage format consistent with the example file. In the example file, each line segment detected from the image is stored in a separate line. The two endpoints of the line segment are stored as four numbers [x1 y1 x2 y2]  separated by spaces, and no other characters are required. 
 
 ## License
 
