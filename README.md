@@ -8,7 +8,7 @@ and evaluation of 3D lines in multiple images".
   | ------------ | ------- |
   | Main_SfM.cpp        | Main function, make obj files   |
   | LineSweep.cpp, LineCluster.cpp | Implementation of the adaptive line clustering   |
-  | triangulated3Dlines.cpp       | Implementation of the triangulation with geometry consistence    |
+  | Triangulate3Dlines.cpp       | Implementation of the triangulation with geometry consistence    |
 
 ## Features
 Accurate 3D line segment clustering  with the support of a probability model.
