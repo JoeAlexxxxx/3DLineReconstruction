@@ -25,7 +25,7 @@
 #include <boost/math/distributions/normal.hpp>
 #include <nlopt.hpp>
 
-#include "triangulated3Dlines.h"
+#include "Triangulated3Dlines.h"
 #include "nfa.h"
 #include "LineSweep.h"
 

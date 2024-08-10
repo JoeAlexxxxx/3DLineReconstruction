@@ -9,6 +9,10 @@ and evaluation of 3D lines in multiple images".
   | Main_SfM.cpp        | Main function, make obj files   |
   | LineSweep.cpp, LineCluster.cpp | Implementation of the adaptive line clustering   |
   | triangulated3Dlines.cpp       | Implementation of the triangulation with geometry consistence    |
+
+## Features
+Accurate 3D line segment clustering  with the support of a probability model.
+Robust triangulation is achieved by a universal framework that refines the 3D line with various forms of geometric consistency.
   
 ## Install
 - One can use 3DLineResconstruction_code/CMakeLists.txt 
@@ -16,7 +20,7 @@ to compile this repository with CMake.
 - It was compiled and ran normally under VS2019, on the Windows11 system with CMake 3.24. 
 - It needs a GPU to achieve efficient knn search.
 - The line matching method is implemented based on <br>
-  ELSR: Efficient Line Segment Reconstruction with Planes and Points Guidance CVPR, 2022.<br>
+  `ELSR: Efficient Line Segment Reconstruction with Planes and Points Guidance CVPR, 2022.`<br>
 ​	Both debug and release versions are provided in "3DLineResconstruction_Lib".
 
 - Locally compiled software and hardware environment
@@ -60,7 +64,7 @@ to compile this repository with CMake.
 
 - Line extraction method `-l (int)`
 
-Specify the line segment extraction method. Three line segment extraction methods are embedded in the program: LSD(OpenCV version), AG3 Line and EDLine, corresponding to commands 1-3 respectively. If you want to use the line segment obtained by other programs, you can not use this command parameter or enter the value -1. 
+  Specify the line segment extraction method. Three line segment extraction methods are embedded in the program: <u>LSD(OpenCV version)</u>, <u>AG3Line</u> and <u>EDLine</u>, corresponding to commands 1-3 respectively. If you want to use the line segment obtained by other programs, you can not use this command parameter or enter the value -1. 
 
 - Line files folder `-f (std::string)`
 
