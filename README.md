@@ -4,8 +4,21 @@ This is a public repository for our paper: "Clustering,
 triangulation, 
 and evaluation of 3D lines in multiple images".
 
-## Install
+  | Cpp file | Description |
+  | ------------ | ------- |
+  | Main_visualSfM.cpp        | Main function   |
+  | LineCluster.cpp     |  Implementation of the adaptive line clustering   |
+  | OpenCV       | 4.55    |
+  | CUDA         | 11.7    |
+  | OpenMP       |         |
+  | TCLAP        | 1.4.0   |
+  | NLOPT        | 2.7.1   |
 
+
+## Install
+One can use 
+3DLineResconstruction_code/CMakeLists.txt 
+to install with CMake.
 Our code compiles and runs normally under VS2019, on the Windows11 system with CMake 3.24. 
 We have provided the 
 In order to achieve more efficient knn search, we need a GPU that supports CUDA.
@@ -33,9 +46,9 @@ The compilation and operation of the program rely on some common open-source thi
   | TCLAP        | 1.4.0   |
   | NLOPT        | 2.7.1   |
 
-- Private library
-
-​	Download available in this repository, both debug and release versions are provided
+- The private library of line matching in
+  D. Wei, Y. Wan, Y. Zhang, X. Liu, B. Zhang and X. Wang, ELSR: Efficient Line Segment Reconstruction with Planes and Points Guidance CVPR, 2022,
+​	both debug and release versions are provided.
 
 ## Example and test
 
