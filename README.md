@@ -1,15 +1,14 @@
 # 3D Line Reconstruction
 
-This is a public repository for 3D line reconstruction.
+This is a public repository for our paper: "Clustering, 
+triangulation, 
+and evaluation of 3D lines in multiple images".
 
-## Features
+## Install
 
-- Accurate 3D line segment clustering  with the support of a probability model.
-- Robust triangulation is achieved by a universal framework that refines the 3D line with various forms of geometric consistency.
-
-## CMake
-
-Our code compiles and runs normally under VS2019, on the Windows11 system with CMake 3.24. In order to achieve more efficient search, we need a GPU that supports CUDA.
+Our code compiles and runs normally under VS2019, on the Windows11 system with CMake 3.24. 
+We have provided the 
+In order to achieve more efficient knn search, we need a GPU that supports CUDA.
 
 - Locally compiled software and hardware environment
   - VisualStudio 2019
