@@ -99,10 +99,6 @@ to compile this repository with CMake.
 
 If you want to use your own line segment extraction results, you need to keep the line segment storage format consistent with the example file. In the example file, each line segment detected from the image is stored in a separate line. The two endpoints of the line segment are stored as four numbers separated by spaces, and no other characters are required. In order to maintain accuracy, these values are all float types and use the screen coordinate system, the origin of the coordinate system is in the upper left corner.
 
-## Acknowledgement
-
-
-
 ## License
 
 The source code of 3D line reconstruction is released under [GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) license. For commercial use, please contact us.
