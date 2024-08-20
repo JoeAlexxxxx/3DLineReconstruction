@@ -9,13 +9,7 @@
 //mine
 #include "SingleImage.h"
 #include "PairMatch.h"
-//#include "LineSweep.h"
-//#include "Parameters.h"
-//#include "ThreadPool.h"
 #include "read_VisualSfM.h"
-//#include "IO.h"
-//#include "Epipolar.h"
-//#include "BasicMath.h"
 #include "LineCluster.h"
 
 #include <fstream>
@@ -88,11 +82,6 @@ int main(int argc, char* argv[])
 	}
 
 	printf("uselsd %d fromcolmap %d maxwidth %d\n", uselsd, fromcolmap, maxwidth);
-
-	//if (!std::filesystem::exists(inputFolder + "\\output"));
-	//	std::filesystem::create_directories(inputFolder + "\\output");
-	
-
 	std::cout << inputFolder << nvmFile << std::endl;
 	
 
