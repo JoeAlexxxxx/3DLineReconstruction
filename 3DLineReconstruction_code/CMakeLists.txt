@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
-project(3DLineResconstruction_PROJ)
+project(3DLineReconstruction_PROJ)
 
 # add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/ELSD)
 
@@ -36,31 +36,31 @@ if(NOT OpenCV_FOUND)
 	message(FATAL_ERROR "Opencv not found.")
 endif()
 
-#ELSR++
-file( GLOB 3DLineResconstruction_header_list ${CMAKE_CURRENT_SOURCE_DIR}/*.h ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
-file( GLOB 3DLineResconstruction_source_list ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp) 
-file( GLOB 3DLineResconstruction_cuda_list ${CMAKE_CURRENT_SOURCE_DIR}/*.cu) 
-cuda_add_executable(3DLineResconstruction
-		${3DLineResconstruction_header_list}
-		${3DLineResconstruction_cuda_list}
-		${3DLineResconstruction_source_list})
-option(APP_USE_OPENMP "3DLineResconstruction: use OpenMP" ON)
-target_include_directories(3DLineResconstruction PUBLIC ${Boost_INCLUDE_DIRS})
-target_include_directories(3DLineResconstruction PUBLIC ${ELSRPP_LIB_DIR})
-target_include_directories(3DLineResconstruction PUBLIC ${OpenCV_INCLUDE_DIRS}
+#3DLineReconstruction
+file( GLOB 3DLineReconstruction_header_list ${CMAKE_CURRENT_SOURCE_DIR}/*.h ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
+file( GLOB 3DLineReconstruction_source_list ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp) 
+file( GLOB 3DLineReconstruction_cuda_list ${CMAKE_CURRENT_SOURCE_DIR}/*.cu) 
+cuda_add_executable(3DLineReconstruction
+		${3DLineReconstruction_header_list}
+		${3DLineReconstruction_cuda_list}
+		${3DLineReconstruction_source_list})
+option(APP_USE_OPENMP "3DLineReconstruction: use OpenMP" ON)
+target_include_directories(3DLineReconstruction PUBLIC ${Boost_INCLUDE_DIRS})
+target_include_directories(3DLineReconstruction PUBLIC ${ELSRPP_LIB_DIR})
+target_include_directories(3DLineReconstruction PUBLIC ${OpenCV_INCLUDE_DIRS}
 		   ${TCLAP_INCLUDE_DIR}
 		   ${EIGEN3_INCLUDE_DIRS}
 		   ${NLOPT_INCLUDE_DIRS})
-target_link_libraries(3DLineResconstruction ${OpenCV_LIBRARIES})
-target_link_libraries(3DLineResconstruction ${CUDA_cusolver_LIBRARY})
-target_link_libraries(3DLineResconstruction debug ${Boost_FILESYSTEM_LIBRARY_DEBUG})
-target_link_libraries(3DLineResconstruction optimized ${Boost_FILESYSTEM_LIBRARY_RELEASE})
-target_link_libraries(3DLineResconstruction debug ${Boost_SERIALIZATION_LIBRARY_DEBUG})
-target_link_libraries(3DLineResconstruction optimized ${Boost_SERIALIZATION_LIBRARY_RELEASE})
-target_link_libraries(3DLineResconstruction NLopt::nlopt)
+target_link_libraries(3DLineReconstruction ${OpenCV_LIBRARIES})
+target_link_libraries(3DLineReconstruction ${CUDA_cusolver_LIBRARY})
+target_link_libraries(3DLineReconstruction debug ${Boost_FILESYSTEM_LIBRARY_DEBUG})
+target_link_libraries(3DLineReconstruction optimized ${Boost_FILESYSTEM_LIBRARY_RELEASE})
+target_link_libraries(3DLineReconstruction debug ${Boost_SERIALIZATION_LIBRARY_DEBUG})
+target_link_libraries(3DLineReconstruction optimized ${Boost_SERIALIZATION_LIBRARY_RELEASE})
+target_link_libraries(3DLineReconstruction NLopt::nlopt)
 
-target_link_libraries(3DLineResconstruction debug ${ELSRPP_LIB_DEBUG})
-target_link_libraries(3DLineResconstruction optimized ${ELSRPP_LIB_RELEASE})
+target_link_libraries(3DLineReconstruction debug ${ELSRPP_LIB_DEBUG})
+target_link_libraries(3DLineReconstruction optimized ${ELSRPP_LIB_RELEASE})
 
-set_property(TARGET 3DLineResconstruction PROPERTY CXX_STANDARD 17)
+set_property(TARGET 3DLineReconstruction PROPERTY CXX_STANDARD 17)
 
