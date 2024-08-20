@@ -59,7 +59,7 @@ Welcome to the public repository for our paper: *"Clustering, Triangulation, and
 
 - **Line Extraction Method `-l (int)`**
 
-  Defines the line segment extraction method. The program includes three methods: `LSD (OpenCV version)`, `AG3Line`, and `EDLine`, corresponding to options 1-3. If you wish to use line segments obtained from other programs, omit this parameter or set it to -1.
+  Defines the line segment extraction method. The program includes three methods: `LSD (OpenCV version)`, `AG3Line`, and `EDLine`, corresponding to options 1-3. If you want to use line segments obtained from other programs, you can just ignore this parameter or set it to -1.
 
 - **Line Files Folder `-f (std::string)`**
 
@@ -82,8 +82,8 @@ Welcome to the public repository for our paper: *"Clustering, Triangulation, and
 ### Example usage
 
 ```javascript
-[3DLineResconstruction.exe] -i /yourPath/3DLineResconstruction/example/Castle30
-/images/ -f /yourPath/3DLineResconstruction/example/Castle30
+[3DLineReconstruction.exe] -i /yourPath/3DLineReconstruction/example/Castle30
+/images/ -f /yourPath/3DLineReconstruction/example/Castle30
 /lines/ -e .txt
 ```
 
@@ -97,7 +97,7 @@ Welcome to the public repository for our paper: *"Clustering, Triangulation, and
 
 ### Addition
 
-If you want to use your own line segment extraction results, you need to keep the line segment storage format consistent with the example file. In the example file, each line segment detected from the image is stored in a separate line. The two endpoints of the line segment are stored as four numbers [x1 y1 x2 y2]  separated by spaces, and no other characters are required. 
+If you want to use your line segment extraction results, keep the line segment storage format consistent with the example file. Each line segment detected from the image in the example file is stored in a separate line. The two endpoints of the line segment are stored as four numbers [x1 y1 x2 y2]  separated by spaces, and no other characters are required. 
 
 ## License
 
