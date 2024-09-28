@@ -97,7 +97,7 @@ Welcome to the public repository for our paper: *"Clustering, Triangulation, and
 ### Dataset
 - P25&Castle https://documents.epfl.ch/groups/c/cv/cvlab-unit/www/data/multiview/rawMVS.html
 - Dublin https://geo.nyu.edu/catalog/nyu-2451-38684
-- Internet https://www.cs.cornell.edu/projects/megadepth/
+- Internet (#0008, #5016, #0050, #0012, #0017, #0061) https://www.cs.cornell.edu/projects/megadepth/
 
 ### Addition
 
